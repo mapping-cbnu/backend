@@ -12,7 +12,7 @@ public class ImageFilterConfig {
         FilterRegistrationBean<ImageHotlinkingPreventionFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new ImageHotlinkingPreventionFilter());
         registrationBean.addUrlPatterns("/api/images/*");
-
+        
         return registrationBean;
     }
 }
