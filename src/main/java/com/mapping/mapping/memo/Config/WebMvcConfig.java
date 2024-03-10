@@ -1,4 +1,4 @@
-package com.mapping.mapping.memo;
+package com.mapping.mapping.memo.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

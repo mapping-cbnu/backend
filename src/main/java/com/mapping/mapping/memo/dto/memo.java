@@ -1,4 +1,4 @@
-package com.mapping.mapping.memo;
+package com.mapping.mapping.memo.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
