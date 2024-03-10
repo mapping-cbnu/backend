@@ -1,5 +1,7 @@
-package com.mapping.mapping.memo;
+package com.mapping.mapping.memo.Controller;
 
+import com.mapping.mapping.memo.Repository.memoRepository;
+import com.mapping.mapping.memo.dto.memo;
 import com.mapping.mapping.user.security.TokenProvider;
 
 import java.util.List;
@@ -23,7 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
 // CROS 설정 - 개빡치는놈

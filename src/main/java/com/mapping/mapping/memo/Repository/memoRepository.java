@@ -1,6 +1,9 @@
-package com.mapping.mapping.memo;
+package com.mapping.mapping.memo.Repository;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.mapping.mapping.memo.dto.memo;
+
 import java.util.List;
 
 
