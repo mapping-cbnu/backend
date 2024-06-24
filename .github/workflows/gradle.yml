@@ -60,9 +60,19 @@ jobs:
 
       # 3. 최신 이미지를 컨테이너화하여 실행시킵니다
       - name: docker run new container
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker run --name github-actions-demo --rm -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/mapping_backend
+        run: |
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker run --name github-actions-demo --rm -d \
+          -p 8080:8080 \
+          -e DB_ADDR=${{ secrets.DB_ADDR }} \
+          -e DB_PORT=${{ secrets.DB_PORT }} \
+          -e DB_NAME=${{ secrets.DB_NAME }} \
+          -e DB_USER=${{ secrets.DB_USER }} \
+          -e DB_PW=${{ secrets.DB_PW }} \
+          -e SERVER_IMGSAVE_ADDR=${{ secrets.SERVER_IMGSAVE_ADDR }} \
+          -e SERVER_DOMAIN=${{ secrets.SERVER_DOMAIN }} \
+          -e SERVER_B_PORT=${{ secrets.SERVER_B_PORT }} \
+          ${{ secrets.DOCKERHUB_USERNAME }}/mapping_backend
 
       # 4. 미사용 이미지를 정리합니다
       - name: delete old docker image
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker system prune -f
-
