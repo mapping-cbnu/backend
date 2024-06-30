@@ -50,7 +50,6 @@ jobs:
           CONTAINER_ID=$(docker ps -q --filter "name=github-actions-demo")
           if [ ! -z "$CONTAINER_ID" ]; then
             echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker stop $CONTAINER_ID
-            echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker rm $CONTAINER_ID
           fi
 
       - name: docker run new container
