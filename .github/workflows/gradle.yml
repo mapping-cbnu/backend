@@ -47,14 +47,14 @@ jobs:
 
       - name: stop running container
         run: |
-          CONTAINER_ID=$(docker ps -q --filter "name=github-actions-demo")
+          CONTAINER_ID=$(docker ps -q --filter "name=mapping_backend")
           if [ ! -z "$CONTAINER_ID" ]; then
             echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker stop $CONTAINER_ID
           fi
 
       - name: docker run new container
         run: |
-          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker run --name github-actions-demo --rm -d \
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | sudo -S docker run --name mapping_backend --rm -d \
           -p 8080:8080 \
           -e DB_ADDR=${{ secrets.DB_ADDR }} \
           -e DB_PORT=${{ secrets.DB_PORT }} \
